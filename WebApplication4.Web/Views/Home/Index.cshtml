@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@* <span>@DateTime.Now.ToShortDateString()</span>
+
+@{
+    var datetime=@DateTime.Now.ToShortDateString();
+    
+    <p>bugünün tarihi @datetime</p>
+
+
+}
+@for(var i = 0; i < 11;i++)
+{
+    <p>@i</p>
+}
+
+@foreach (var item in Enumerable.Range(1, 10).ToList())
+{
+        <p>@item</p>
+} *@
+
+<div class="row">
+    <div class="col-md-4">
+        <partial name="~/PartialViews/_ProductListPartialView.cshtml" model="@ViewBag.productListPartialViewModel" />
+
+    </div>
+
+    <div class="col-md-4">
+
+
+    </div>
+
+    <div class="col-md-4"></div>
+
+
+    <div class="col-md-4">
+
+        @*1.yol*@
+         @await Component.InvokeAsync("ProductList",new {type=1})
+
+        @* 2.yol*@
+       @* <vc:product-list type=1></vc:product-list> *@
+
+
+    </div>
+
+<div class="row">
+
+    <div class="col-md-9">
+
+        <vc:visitor></vc:visitor>
+
+
+    </div>
+
+
+</div>
+
